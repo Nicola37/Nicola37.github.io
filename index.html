@@ -1,0 +1,105 @@
+<!-- The Website of Nicola Frachesen -->
+<!-- Created using Github, JQuery, and Anime.js.
+  Name animation based on example by Tobias Ahlin. All other work is my own.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="The personal website of Nicola Frachesen."/>
+  <meta name="author" content="Nicola Frachesen"/>
+  <link rel="icon" href="media/icon.jpg"/>
+
+  <!-- Stylesheet -->
+  <link rel = "stylesheet" href = "style.css"/>
+</head>
+
+<body>
+  <!-- Name header -->
+  <h1 class = "header">
+    <span class = "text-wrapper" align = "left">
+      <span class = "line line1"></span>
+      <span class = "line line2"></span>
+      <span class = "letters letters-left">Nicola</span>
+      <span class = "letters space"></span>
+      <span class = "letters letters-right">Frachesen</span>
+    </span>
+  </h1>
+
+  <!-- Options -->
+  <h2 class = "subheader1">
+    <div class = "square"></div>
+    <span class = "option">About Me</span>
+  </h2>
+
+  <h3 class = "subheader2">
+    <div class = "square"></div>
+    <span class = "option">My Work</span>
+  </h3>
+
+  <h4 class = "subheader3">
+    <div class = "square"></div>
+    <span class = "option">Resumé</span>
+  </h4>
+
+  <h5 class = "subheader4">
+    <div class = "square"></div>
+    <span class = "option">Contact</span>
+  </h5>
+
+  <!-- Tabs -->
+  <div class = "pane aboutPane">
+    <div class = "optionHeader aboutHeader">About Me</div>
+    <div class = "optionText aboutText">My name is Nicola Frachesen, and I am a user experience designer, programmer, and writer from Miami, Florida.<br><br>I have a BS in Digital Arts and Sciences, a computer science degree with added art and design elements, from the University of Florida.<br><br>I enjoy reading, playing video games, and being intensely curious about pretty much everything.</div>
+    <img class = "selfImage" src="media/Photo.jpeg"/>
+  </div>
+
+  <div class = "pane workPane">
+    <div class = "grid">
+      <div class =  "gridTitle">
+        <div class = "optionHeader workHeader">My Work</div>
+      </div>
+      <div class =  "gridOne">
+        <div class = "optionText workText"><b>Dying Dreams</b></div>
+        <div class = "squareDD"></div>
+        <div class = "optionText workText">My senior project,<i> Dying Dreams</i>, is a video game with no video; a completely audio-based role-playing game designed to be inclusive of the visually impaired. It was made in Unity, is 3 to 4 hours long, and includes voice work primarily from actor Yan Bergquist. My paper on it can be found <a href = "media/Dying%20Dreams%20Paper.pdf" target="_blank">here</a>.</div>
+      </div>
+      <div class =  "gridTwo">
+        <div class = "optionText workText"><b>Donator</b></div>
+        <img class = "sampleImage" src="media/donatorImage.png"/>
+        <div class = "optionText workText">Group project from my UX design class made for a client from the Royal Bank of Canada. We designed, wireframed, and presented an app for donating to the homeless. It was created using Invision. Our presentation poster can be found <a href = "media/Presentation%20Poster.pdf" target="_blank">here</a>.</div>
+      </div>
+      <div class =  "gridThree">
+        <div class = "optionText workText"><b>Pixel Story</b></div>
+        <img class = "sampleImage" src="media/pixelStoryImage.png"/>
+        <div class = "optionText workText">A pixel art, animation, and gif creator with a focus on customization and storytelling. Created in Java. More information can be found <a href = "https://github.com/Nicola37/Pixel-Story" target="_blank">here</a>.</div>
+      </div>
+      <div class =  "gridFour">
+        <div class = "optionText workText"><b>Writing</b></div>
+        <div class = "optionText workText"> I greatly enjoy writing in general, and fiction in particular. In addition to having taken writing courses, I have written scripts for several video game projects, including <i>Dying Dreams</i>, and have written a number of short stories. A brief sample of my work can be found <a href = "media/In%20the%20Gift%20of%20Choice%20Sample.pdf" target="_blank">here</a>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class = "pane resumePane">
+    <div class = "optionHeader resumeHeader">Resumé</div>
+    <object data = "media/Nicola%20Frachesen%20Resume.pdf"></object>
+    <div class = "optionText resumeText"><a href = "media/Nicola%20Frachesen%20Resume.pdf" download target="_blank">Download</a></div>
+  </div>
+
+  <div class = "pane contactPane">
+    <div class = "optionHeader contactHeader">Contact<br></br></div>
+    <a href="mailto:nicola2637@gmail.com"><img class = "logoImage" src="media/mailLogo.svg"/><div class = "optionText contactText">nicola2637@gmail.com</div></a>
+    <a href="https://github.com/Nicola37/" target="_blank"><img class = "logoImage" src="media/githubLogo.svg"/><div class = "optionText contactText">Nicola37</div></a>
+  </div>
+
+  <!-- Importing Javascript -->
+  <script src = "https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src = "libraries/anime.min.js"></script>
+  <script src = "main.js"></script>
+
+</body>
+
+</html>
