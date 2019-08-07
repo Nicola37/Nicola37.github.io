@@ -62,19 +62,8 @@ opening.add({
   //Once the opening is done...
   complete: function(){
     //Add event listeners for hovering and clicking on options.
-    document.querySelector(".header").addEventListener("click", mouseClickHeader);
-    document.querySelector(".subheader1").addEventListener("mouseover", mouseOverOption1);
-    document.querySelector(".subheader1").addEventListener("mouseleave", mouseLeaveOption1);
-    document.querySelector(".subheader1").addEventListener("click", mouseClickOption1);
-    document.querySelector(".subheader2").addEventListener("mouseover", mouseOverOption2);
-    document.querySelector(".subheader2").addEventListener("mouseleave", mouseLeaveOption2);
-    document.querySelector(".subheader2").addEventListener("click", mouseClickOption2);
-    document.querySelector(".subheader3").addEventListener("mouseover", mouseOverOption3);
-    document.querySelector(".subheader3").addEventListener("mouseleave", mouseLeaveOption3);
-    document.querySelector(".subheader3").addEventListener("click", mouseClickOption3);
-    document.querySelector(".subheader4").addEventListener("mouseover", mouseOverOption4);
-    document.querySelector(".subheader4").addEventListener("mouseleave", mouseLeaveOption4);
-    document.querySelector(".subheader4").addEventListener("click", mouseClickOption4);
+    document.querySelector(".text-wrapper").addEventListener("click", mouseClickHeader);
+    addAllEventListeners();
   }
 }, '-=225');
 
@@ -151,6 +140,7 @@ var aboutAnimation = anime.timeline({
     document.querySelector(".contactPane").style.zIndex = "auto";
 
     if (currentTab != "none"){
+      //Set the current tab and the new (about) tab to be in front.
       document.querySelector("."+currentTab+"Pane").style.zIndex = 1;
       document.querySelector(".aboutPane").style.zIndex = 2;
     }
@@ -191,7 +181,7 @@ var workAnimation = anime.timeline({
       document.querySelector(".workPane").style.zIndex = 2;
     }
 
-    document.querySelector(".grid").style.overflow = "visible";
+    document.querySelector(".workGrid").style.overflow = "visible";
   },
   autoplay: false,
   duration: 800,
@@ -204,6 +194,9 @@ workAnimation.add({
   targets: ".workPane",
   width: "70vw"
 }).add({
+  targets: ".workGrid",
+  opacity: [0,1]
+}, 800).add({
   targets: ".workHeader",
   opacity: [0,1]
 }, 800).add({
@@ -216,7 +209,7 @@ workAnimation.add({
   targets: ".sampleImage",
   opacity: [0,1],
   complete: function(){
-    document.querySelector(".grid").style.overflow = "auto";
+    document.querySelector(".workGrid").style.overflow = "auto";
   }
 }, 800)
 
@@ -402,4 +395,20 @@ function mouseClickOption4(){
   if (currentTab != "contact"){
     contactAnimation.play();
   }
+}
+
+//Adding the main Event Listeners
+function addAllEventListeners(){
+  document.querySelector(".subheader1").addEventListener("mouseover", mouseOverOption1);
+  document.querySelector(".subheader1").addEventListener("mouseleave", mouseLeaveOption1);
+  document.querySelector(".subheader1").addEventListener("click", mouseClickOption1);
+  document.querySelector(".subheader2").addEventListener("mouseover", mouseOverOption2);
+  document.querySelector(".subheader2").addEventListener("mouseleave", mouseLeaveOption2);
+  document.querySelector(".subheader2").addEventListener("click", mouseClickOption2);
+  document.querySelector(".subheader3").addEventListener("mouseover", mouseOverOption3);
+  document.querySelector(".subheader3").addEventListener("mouseleave", mouseLeaveOption3);
+  document.querySelector(".subheader3").addEventListener("click", mouseClickOption3);
+  document.querySelector(".subheader4").addEventListener("mouseover", mouseOverOption4);
+  document.querySelector(".subheader4").addEventListener("mouseleave", mouseLeaveOption4);
+  document.querySelector(".subheader4").addEventListener("click", mouseClickOption4);
 }
