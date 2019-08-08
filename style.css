@@ -1,7 +1,10 @@
 /*Body and Header*/
+html{
+  overflow: hidden;
+}
+
 body{
   background-color: rgb(37, 37, 37);
-  overflow: hidden;
   font-family: Tahoma, Geneva, sans-serif;
 }
 
