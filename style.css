@@ -12,7 +12,7 @@ body{
   padding-top: 0;
   position: relative;
   font-weight: 400;
-  font-size: 3vw;
+  font-size: 3.2vw;
   color: rgb(235, 130, 55);
 }
 
@@ -128,6 +128,7 @@ body{
   font-size: 6.5vmin;
   padding-top: 2vh;
   opacity: 0;
+  background-color: rgb(200, 200, 200);
   color: rgb(37, 37, 37);
 }
 
@@ -148,8 +149,8 @@ body{
 }
 
 .selfImage{
-  height: 36vmin;
-  width: 64vmin;
+  height: 38.25vmin;
+  width: 68vmin;
   border: 8px solid rgb(200, 200, 200);
   opacity: 0;
 }
