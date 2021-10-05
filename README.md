@@ -1,2 +1,4 @@
-# Nicola37.github.io
-My personal website. Contains a personal summary, brief portfolio, my resumé, and contact information.
+# NicolaFrachesen.com
+My personal website. Contains an about section, brief portfolio, resume, and contact information.
+
+https://nicolafrachesen.com
