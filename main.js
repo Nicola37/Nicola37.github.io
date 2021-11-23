@@ -203,6 +203,9 @@ workAnimation.add({
   targets: ".workText",
   opacity: [0,1]
 }, 800).add({
+  targets: ".VIBESLink",
+  opacity: [0,1]
+}, 800).add({
   targets: ".squareDD",
   opacity: [0,1]
 }, 800).add({
@@ -284,6 +287,53 @@ contactAnimation.add({
   easing: "easeInOutQuad",
   opacity: [0,1]
 }, 800)
+
+//Link Button Animation
+var linkAnimation = anime.timeline({
+  autoplay: false,
+  duration: 400
+})
+linkAnimation.add({
+  targets: ".VIBESLink",
+  easing: "easeInOutQuad",
+  color: "rgb(37, 37, 37)",
+  background: "rgb(218, 218, 218)"
+}, 0)
+
+//Back Button Animation
+var backAnimation = anime.timeline({
+  autoplay: false,
+  duration: 400
+})
+backAnimation.add({
+  targets: ".VIBESBack",
+  easing: "easeInOutQuad",
+  color: "rgb(37, 37, 37)",
+  background: "rgb(235, 130, 55)"
+}, 0)
+
+//New Page Animation
+var newPageAnimation = anime.timeline({
+  autoplay: false,
+  duration: 800
+})
+newPageAnimation.add({
+  targets: ".newPageBackground",
+  easing: "easeInOutQuad",
+  top: "0vh"
+}).add({
+  targets: ".VIBESHeader",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 800).add({
+  targets: ".VIBESText",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 800).add({
+  targets: ".VIBESBack",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 1600)
 
 //Other effects when pane comes out. Partially for mobile scaling.
 var paneOpening = anime.timeline({
@@ -397,6 +447,38 @@ function mouseClickOption4(){
   }
 }
 
+function mouseOverLink(){
+  if (linkAnimation.reversed) linkAnimation.reverse();
+  linkAnimation.completed = false;
+  linkAnimation.play();
+}
+function mouseLeaveLink(){
+  if (!linkAnimation.reversed) linkAnimation.reverse();
+  linkAnimation.completed = false;
+  linkAnimation.play();
+}
+function mouseClickLink(){
+  if (newPageAnimation.reversed) newPageAnimation.reverse();
+  newPageAnimation.play();
+}
+
+function mouseOverBack(){
+  if (backAnimation.reversed) backAnimation.reverse();
+  backAnimation.completed = false;
+  backAnimation.play();
+}
+function mouseLeaveBack(){
+  if (!backAnimation.reversed) backAnimation.reverse();
+  backAnimation.completed = false;
+  backAnimation.play();
+}
+function mouseClickBack(){
+  if (!newPageAnimation.reversed) newPageAnimation.reverse();
+  newPageAnimation.completed = false;
+  newPageAnimation.play();
+}
+
+
 //Adding the main Event Listeners
 function addAllEventListeners(){
   document.querySelector(".subheader1").addEventListener("mouseover", mouseOverOption1);
@@ -411,4 +493,12 @@ function addAllEventListeners(){
   document.querySelector(".subheader4").addEventListener("mouseover", mouseOverOption4);
   document.querySelector(".subheader4").addEventListener("mouseleave", mouseLeaveOption4);
   document.querySelector(".subheader4").addEventListener("click", mouseClickOption4);
+
+  document.querySelector(".VIBESLink").addEventListener("mouseover", mouseOverLink);
+  document.querySelector(".VIBESLink").addEventListener("mouseleave", mouseLeaveLink);
+  document.querySelector(".VIBESLink").addEventListener("click", mouseClickLink);
+
+  document.querySelector(".VIBESBack").addEventListener("mouseover", mouseOverBack);
+  document.querySelector(".VIBESBack").addEventListener("mouseleave", mouseLeaveBack);
+  document.querySelector(".VIBESBack").addEventListener("click", mouseClickBack);
 }
