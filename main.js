@@ -1,6 +1,9 @@
 //Keeping track of the current tab.
 var currentTab = "none";
 
+//Keeping track of the current portfolio tab.
+var portfolioTab = "none";
+
 //Opening Animation
 var opening = anime.timeline();
 opening.add({
@@ -203,7 +206,7 @@ workAnimation.add({
   targets: ".workText",
   opacity: [0,1]
 }, 800).add({
-  targets: ".VIBESLink",
+  targets: ".linkButton",
   opacity: [0,1]
 }, 800).add({
   targets: ".squareDD",
@@ -288,13 +291,35 @@ contactAnimation.add({
   opacity: [0,1]
 }, 800)
 
-//Link Button Animation
-var linkAnimation = anime.timeline({
+//Link Button Animations
+var linkVIBESAnimation = anime.timeline({
   autoplay: false,
   duration: 400
 })
-linkAnimation.add({
+linkVIBESAnimation.add({
   targets: ".VIBESLink",
+  easing: "easeInOutQuad",
+  color: "rgb(37, 37, 37)",
+  background: "rgb(218, 218, 218)"
+}, 0)
+
+var linkDreamsAnimation = anime.timeline({
+  autoplay: false,
+  duration: 400
+})
+linkDreamsAnimation.add({
+  targets: ".dreamsLink",
+  easing: "easeInOutQuad",
+  color: "rgb(37, 37, 37)",
+  background: "rgb(218, 218, 218)"
+}, 0)
+
+var linkDonatorAnimation = anime.timeline({
+  autoplay: false,
+  duration: 400
+})
+linkDonatorAnimation.add({
+  targets: ".donatorLink",
   easing: "easeInOutQuad",
   color: "rgb(37, 37, 37)",
   background: "rgb(218, 218, 218)"
@@ -306,19 +331,19 @@ var backAnimation = anime.timeline({
   duration: 400
 })
 backAnimation.add({
-  targets: ".VIBESBack",
+  targets: ".backButton",
   easing: "easeInOutQuad",
   color: "rgb(37, 37, 37)",
   background: "rgb(235, 130, 55)"
 }, 0)
 
-//New Page Animation
-var newPageAnimation = anime.timeline({
+//Portfolio Page Animations
+var portfolioVIBESAnimation = anime.timeline({
   autoplay: false,
   duration: 800
 })
-newPageAnimation.add({
-  targets: ".newPageBackground",
+portfolioVIBESAnimation.add({
+  targets: ".VIBESBackground",
   easing: "easeInOutQuad",
   top: "0vh"
 }).add({
@@ -330,7 +355,63 @@ newPageAnimation.add({
   easing: "easeInOutQuad",
   opacity: [0,1]
 }, 800).add({
-  targets: ".VIBESBack",
+  targets: ".backButton",
+  easing: "easeInOutQuad",
+  top: "0.5vh"
+}, 800).add({
+  targets: ".backButton",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 1600)
+
+var portfolioDreamsAnimation = anime.timeline({
+  autoplay: false,
+  duration: 800
+})
+portfolioDreamsAnimation.add({
+  targets: ".dreamsBackground",
+  easing: "easeInOutQuad",
+  top: "0vh"
+}).add({
+  targets: ".dreamsHeader",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 800).add({
+  targets: ".dreamsText",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 800).add({
+  targets: ".backButton",
+  easing: "easeInOutQuad",
+  top: "0.5vh"
+}, 800).add({
+  targets: ".backButton",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 1600)
+
+var portfolioDonatorAnimation = anime.timeline({
+  autoplay: false,
+  duration: 800
+})
+portfolioDonatorAnimation.add({
+  targets: ".donatorBackground",
+  easing: "easeInOutQuad",
+  top: "0vh"
+}).add({
+  targets: ".donatorHeader",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 800).add({
+  targets: ".donatorText",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 800).add({
+  targets: ".backButton",
+  easing: "easeInOutQuad",
+  top: "0.5vh"
+}, 800).add({
+  targets: ".backButton",
   easing: "easeInOutQuad",
   opacity: [0,1]
 }, 1600)
@@ -367,10 +448,13 @@ paneOpening.add({
 }, 0);
 
 //Event Listeners
+
+//Header
 function mouseClickHeader(){
   window.location.reload();
 }
 
+//Main Options
 function mouseOverOption1(){
   if (option1Animation.reversed) option1Animation.reverse();
   option1Animation.completed = false;
@@ -447,21 +531,56 @@ function mouseClickOption4(){
   }
 }
 
-function mouseOverLink(){
-  if (linkAnimation.reversed) linkAnimation.reverse();
-  linkAnimation.completed = false;
-  linkAnimation.play();
+//Portfolio Pages
+function mouseOverVIBESLink(){
+  if (linkVIBESAnimation.reversed) linkVIBESAnimation.reverse();
+  linkVIBESAnimation.completed = false;
+  linkVIBESAnimation.play();
 }
-function mouseLeaveLink(){
-  if (!linkAnimation.reversed) linkAnimation.reverse();
-  linkAnimation.completed = false;
-  linkAnimation.play();
+function mouseLeaveVIBESLink(){
+  if (!linkVIBESAnimation.reversed) linkVIBESAnimation.reverse();
+  linkVIBESAnimation.completed = false;
+  linkVIBESAnimation.play();
 }
-function mouseClickLink(){
-  if (newPageAnimation.reversed) newPageAnimation.reverse();
-  newPageAnimation.play();
+function mouseClickVIBESLink(){
+  if (portfolioVIBESAnimation.reversed) portfolioVIBESAnimation.reverse();
+  portfolioVIBESAnimation.play();
+  portfolioTab = "VIBES";
 }
 
+function mouseOverDreamsLink(){
+  if (linkDreamsAnimation.reversed) linkDreamsAnimation.reverse();
+  linkDreamsAnimation.completed = false;
+  linkDreamsAnimation.play();
+}
+function mouseLeaveDreamsLink(){
+  if (!linkDreamsAnimation.reversed) linkDreamsAnimation.reverse();
+  linkDreamsAnimation.completed = false;
+  linkDreamsAnimation.play();
+}
+function mouseClickDreamsLink(){
+  if (portfolioDreamsAnimation.reversed) portfolioDreamsAnimation.reverse();
+  portfolioDreamsAnimation.play();
+  portfolioTab = "dreams";
+}
+
+function mouseOverDonatorLink(){
+  if (linkDonatorAnimation.reversed) linkDonatorAnimation.reverse();
+  linkDonatorAnimation.completed = false;
+  linkDonatorAnimation.play();
+}
+function mouseLeaveDonatorLink(){
+  if (!linkDonatorAnimation.reversed) linkDonatorAnimation.reverse();
+  linkDonatorAnimation.completed = false;
+  linkDonatorAnimation.play();
+}
+function mouseClickDonatorLink(){
+  if (portfolioDonatorAnimation.reversed) portfolioDonatorAnimation.reverse();
+  portfolioDonatorAnimation.play();
+  portfolioTab = "donator";
+}
+
+//Portfolio Back Button
 function mouseOverBack(){
   if (backAnimation.reversed) backAnimation.reverse();
   backAnimation.completed = false;
@@ -473,13 +592,29 @@ function mouseLeaveBack(){
   backAnimation.play();
 }
 function mouseClickBack(){
-  if (!newPageAnimation.reversed) newPageAnimation.reverse();
-  newPageAnimation.completed = false;
-  newPageAnimation.play();
+  if (portfolioTab == "VIBES"){
+    if (!portfolioVIBESAnimation.reversed) portfolioVIBESAnimation.reverse();
+    portfolioVIBESAnimation.completed = false;
+    portfolioVIBESAnimation.play();
+  }
+
+  if (portfolioTab == "dreams"){
+    if (!portfolioDreamsAnimation.reversed) portfolioDreamsAnimation.reverse();
+    portfolioDreamsAnimation.completed = false;
+    portfolioDreamsAnimation.play();
+  }
+
+  if (portfolioTab == "donator"){
+    if (!portfolioDonatorAnimation.reversed) portfolioDonatorAnimation.reverse();
+    portfolioDonatorAnimation.completed = false;
+    portfolioDonatorAnimation.play();
+  }
+
+  portfolioTab = "none";
 }
 
 
-//Adding the main Event Listeners
+//Adding the Event Listeners
 function addAllEventListeners(){
   document.querySelector(".subheader1").addEventListener("mouseover", mouseOverOption1);
   document.querySelector(".subheader1").addEventListener("mouseleave", mouseLeaveOption1);
@@ -494,11 +629,17 @@ function addAllEventListeners(){
   document.querySelector(".subheader4").addEventListener("mouseleave", mouseLeaveOption4);
   document.querySelector(".subheader4").addEventListener("click", mouseClickOption4);
 
-  document.querySelector(".VIBESLink").addEventListener("mouseover", mouseOverLink);
-  document.querySelector(".VIBESLink").addEventListener("mouseleave", mouseLeaveLink);
-  document.querySelector(".VIBESLink").addEventListener("click", mouseClickLink);
+  document.querySelector(".VIBESLink").addEventListener("mouseover", mouseOverVIBESLink);
+  document.querySelector(".VIBESLink").addEventListener("mouseleave", mouseLeaveVIBESLink);
+  document.querySelector(".VIBESLink").addEventListener("click", mouseClickVIBESLink);
+  document.querySelector(".dreamsLink").addEventListener("mouseover", mouseOverDreamsLink);
+  document.querySelector(".dreamsLink").addEventListener("mouseleave", mouseLeaveDreamsLink);
+  document.querySelector(".dreamsLink").addEventListener("click", mouseClickDreamsLink);
+  document.querySelector(".donatorLink").addEventListener("mouseover", mouseOverDonatorLink);
+  document.querySelector(".donatorLink").addEventListener("mouseleave", mouseLeaveDonatorLink);
+  document.querySelector(".donatorLink").addEventListener("click", mouseClickDonatorLink);
 
-  document.querySelector(".VIBESBack").addEventListener("mouseover", mouseOverBack);
-  document.querySelector(".VIBESBack").addEventListener("mouseleave", mouseLeaveBack);
-  document.querySelector(".VIBESBack").addEventListener("click", mouseClickBack);
+  document.querySelector(".backButton").addEventListener("mouseover", mouseOverBack);
+  document.querySelector(".backButton").addEventListener("mouseleave", mouseLeaveBack);
+  document.querySelector(".backButton").addEventListener("click", mouseClickBack);
 }
