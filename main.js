@@ -11,10 +11,10 @@ opening.add({
   opacity: [0.5,1],
   scaleX: [0, 1],
   easing: "easeInOutExpo",
-  duration: 700
+  duration: 500
 }).add({
   targets: '.header .line',
-  duration: 600,
+  duration: 500,
   easing: "easeOutExpo",
   translateY: function(e, i, l) {
     var offset = -1.5 + 1.5*2*i;
@@ -25,14 +25,14 @@ opening.add({
   opacity: [0,1],
   translateX: ["0.5em", 0],
   easing: "easeOutExpo",
-  duration: 700,
+  duration: 450,
   offset: '-=600'
 }).add({
   targets: '.header .letters-right',
   opacity: [0,1],
   translateX: ["-0.5em", 0],
   easing: "easeOutExpo",
-  duration: 700,
+  duration: 450,
   offset: '-=600'
 })
 .add({
@@ -40,28 +40,28 @@ opening.add({
   opacity: [0,1],
   translateX: ["-10vw", "5vw"],
   easing: "easeInOutQuad",
-  duration: 150,
+  duration: 125,
 })
 .add({
   targets: '.subheader2 .option',
   opacity: [0,1],
   translateX: ["-10vw", "25vw"],
   easing: "easeInOutQuad",
-  duration: 300,
+  duration: 250,
 }, '-=75')
 .add({
   targets: '.subheader3 .option',
   opacity: [0,1],
   translateX: ["-10vw", "45vw"],
   easing: "easeInOutQuad",
-  duration: 450,
+  duration: 375,
 }, '-=150')
 .add({
   targets: '.subheader4 .option',
   opacity: [0,1],
   translateX: ["-10vw", "65vw"],
   easing: "easeInOutQuad",
-  duration: 600,
+  duration: 500,
   //Once the opening is done...
   complete: function(){
     //Add event listeners for hovering and clicking on options.
@@ -73,7 +73,7 @@ opening.add({
 //Option Animations
 var option1Animation = anime.timeline({
   autoplay: false,
-  duration: 600
+  duration: 500
 });
 option1Animation.add({
   targets: ".subheader1 .square",
@@ -89,7 +89,7 @@ option1Animation.add({
 
 var option2Animation = anime.timeline({
   autoplay: false,
-  duration: 600
+  duration: 500
 });
 option2Animation.add({
   targets: ".subheader2 .square",
@@ -105,7 +105,7 @@ option2Animation.add({
 
 var option3Animation = anime.timeline({
   autoplay: false,
-  duration: 600
+  duration: 500
 });
 option3Animation.add({
   targets: ".subheader3 .square",
@@ -121,7 +121,7 @@ option3Animation.add({
 
 var option4Animation = anime.timeline({
   autoplay: false,
-  duration: 600
+  duration: 500
 });
 option4Animation.add({
   targets: ".subheader4 .square",
@@ -149,7 +149,7 @@ var aboutAnimation = anime.timeline({
     }
   },
   autoplay: false,
-  duration: 800,
+  duration: 700,
   complete: function(){
     currentTab = "about";
   }
@@ -157,20 +157,12 @@ var aboutAnimation = anime.timeline({
 aboutAnimation.add({
   targets: ".aboutPane",
   easing: "easeInOutQuad",
-  width: "70vw"
+  left: "30vw"
 }).add({
-  targets: ".aboutHeader",
+  targets: ".aboutHeader, .aboutText, .selfImage",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 800).add({
-  targets: ".aboutText",
-  easing: "easeInOutQuad",
-  opacity: [0,1]
-}, 800).add({
-  targets: ".selfImage",
-  easing: "easeInOutQuad",
-  opacity: [0,1]
-}, 800)
+}, 700)
 
 //Work page animation.
 var workAnimation = anime.timeline({
@@ -184,10 +176,10 @@ var workAnimation = anime.timeline({
       document.querySelector(".workPane").style.zIndex = 2;
     }
 
-    document.querySelector(".workGrid").style.overflow = "visible";
+    //document.querySelector(".workGrid").style.overflow = "visible";
   },
   autoplay: false,
-  duration: 800,
+  duration: 700,
   easing: "easeInOutQuad",
   complete: function(){
     currentTab = "work";
@@ -195,29 +187,17 @@ var workAnimation = anime.timeline({
 })
 workAnimation.add({
   targets: ".workPane",
-  width: "70vw"
+  left: "30vw"
 }).add({
-  targets: ".workGrid",
-  opacity: [0,1]
-}, 800).add({
-  targets: ".workHeader",
-  opacity: [0,1]
-}, 800).add({
-  targets: ".workText",
-  opacity: [0,1]
-}, 800).add({
-  targets: ".linkButton",
-  opacity: [0,1]
-}, 800).add({
-  targets: ".squareDD",
-  opacity: [0,1]
-}, 800).add({
-  targets: ".sampleImage",
+  targets: ".workGrid, .workHeader, .workText, .squareDD, .sampleImage, .introImage",
   opacity: [0,1],
-  complete: function(){
+  /*complete: function(){
     document.querySelector(".workGrid").style.overflow = "auto";
-  }
-}, 800)
+  }*/
+}, 700)/*.add({
+  targets: "::-webkit-scrollbar-track",
+  opacity: [0,1],
+}, 700)*/
 
 //Resume page animation.
 var resumeAnimation = anime.timeline({
@@ -232,7 +212,7 @@ var resumeAnimation = anime.timeline({
     }
   },
   autoplay: false,
-  duration: 800,
+  duration: 700,
   complete: function(){
     currentTab = "resume";
   }
@@ -240,20 +220,12 @@ var resumeAnimation = anime.timeline({
 resumeAnimation.add({
   targets: ".resumePane",
   easing: "easeInOutQuad",
-  width: "70vw"
+  left: "30vw"
 }).add({
-  targets: ".resumeHeader",
+  targets: ".resumeHeader, .resumeText, object",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 800).add({
-  targets: ".resumeText",
-  easing: "easeInOutQuad",
-  opacity: [0,1]
-}, 800).add({
-  targets: "object",
-  easing: "easeInOutQuad",
-  opacity: [0,1]
-}, 800)
+}, 700)
 
 //Contact page animation.
 var contactAnimation = anime.timeline({
@@ -268,7 +240,7 @@ var contactAnimation = anime.timeline({
     }
   },
   autoplay: false,
-  duration: 800,
+  duration: 700,
   complete: function(){
     currentTab = "contact";
   }
@@ -276,22 +248,44 @@ var contactAnimation = anime.timeline({
 contactAnimation.add({
   targets: ".contactPane",
   easing: "easeInOutQuad",
-  width: "70vw"
+  left: "30vw"
 }).add({
   targets: ".contactHeader",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 800).add({
+}, 700).add({
   targets: ".contactText",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 800).add({
+}, 700).add({
   targets: ".logoImage",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 800)
+}, 700)
 
-//Link Button Animations
+//Link Button Hover Animations
+var linkVoteAnimation = anime.timeline({
+  autoplay: false,
+  duration: 400
+})
+linkVoteAnimation.add({
+  targets: ".voteLink",
+  easing: "easeInOutQuad",
+  color: "rgb(37, 37, 37)",
+  background: "rgb(218, 218, 218)"
+}, 0)
+
+var linkOvenAnimation = anime.timeline({
+  autoplay: false,
+  duration: 400
+})
+linkOvenAnimation.add({
+  targets: ".ovenLink",
+  easing: "easeInOutQuad",
+  color: "rgb(37, 37, 37)",
+  background: "rgb(218, 218, 218)"
+}, 0)
+
 var linkVIBESAnimation = anime.timeline({
   autoplay: false,
   duration: 400
@@ -325,7 +319,7 @@ linkDonatorAnimation.add({
   background: "rgb(218, 218, 218)"
 }, 0)
 
-//Back Button Animation
+//Back Button Hover Animation
 var backAnimation = anime.timeline({
   autoplay: false,
   duration: 400
@@ -338,88 +332,120 @@ backAnimation.add({
 }, 0)
 
 //Portfolio Page Animations
+var portfolioVoteAnimation = anime.timeline({
+  autoplay: false,
+  duration: 700
+})
+portfolioVoteAnimation.add({
+  targets: ".voteBackground",
+  easing: "easeInOutQuad",
+  top: "0vh"
+}).add({
+  targets: ".voteHeader, .voteText, .portfolioGrid, .portfolioImage",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 700).add({
+  targets: ".backButton",
+  easing: "easeInOutQuad",
+  top: "1vmax"
+}, 0).add({
+  targets: ".backButton",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 1050)
+
+var portfolioOvenAnimation = anime.timeline({
+  autoplay: false,
+  duration: 700
+})
+portfolioOvenAnimation.add({
+  targets: ".ovenBackground",
+  easing: "easeInOutQuad",
+  top: "0vh"
+}).add({
+  targets: ".ovenHeader, .ovenText, .portfolioGrid, .portfolioImage",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 700).add({
+  targets: ".backButton",
+  easing: "easeInOutQuad",
+  top: "1vmax"
+}, 0).add({
+  targets: ".backButton",
+  easing: "easeInOutQuad",
+  opacity: [0,1]
+}, 1050)
+
 var portfolioVIBESAnimation = anime.timeline({
   autoplay: false,
-  duration: 800
+  duration: 700
 })
 portfolioVIBESAnimation.add({
   targets: ".VIBESBackground",
   easing: "easeInOutQuad",
   top: "0vh"
 }).add({
-  targets: ".VIBESHeader",
+  targets: ".VIBESHeader, .VIBESText",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 800).add({
-  targets: ".VIBESText",
-  easing: "easeInOutQuad",
-  opacity: [0,1]
-}, 800).add({
+}, 700).add({
   targets: ".backButton",
   easing: "easeInOutQuad",
-  top: "0.5vh"
-}, 800).add({
+  top: "1vmax"
+}, 0).add({
   targets: ".backButton",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 1600)
+}, 1050)
 
 var portfolioDreamsAnimation = anime.timeline({
   autoplay: false,
-  duration: 800
+  duration: 700
 })
 portfolioDreamsAnimation.add({
   targets: ".dreamsBackground",
   easing: "easeInOutQuad",
   top: "0vh"
 }).add({
-  targets: ".dreamsHeader",
+  targets: ".dreamsHeader, .dreamsText",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 800).add({
-  targets: ".dreamsText",
-  easing: "easeInOutQuad",
-  opacity: [0,1]
-}, 800).add({
+}, 700).add({
   targets: ".backButton",
   easing: "easeInOutQuad",
-  top: "0.5vh"
-}, 800).add({
+  top: "1vmax"
+}, 0).add({
   targets: ".backButton",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 1600)
+}, 1050)
 
 var portfolioDonatorAnimation = anime.timeline({
   autoplay: false,
-  duration: 800
+  duration: 700
 })
 portfolioDonatorAnimation.add({
   targets: ".donatorBackground",
   easing: "easeInOutQuad",
   top: "0vh"
 }).add({
-  targets: ".donatorHeader",
+  targets: ".donatorHeader, .donatorText",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 800).add({
-  targets: ".donatorText",
-  easing: "easeInOutQuad",
-  opacity: [0,1]
-}, 800).add({
+}, 700).add({
   targets: ".backButton",
   easing: "easeInOutQuad",
-  top: "0.5vh"
-}, 800).add({
+  top: "1vmax"
+}, 0).add({
   targets: ".backButton",
   easing: "easeInOutQuad",
   opacity: [0,1]
-}, 1600)
+}, 1050)
 
 //Other effects when pane comes out. Partially for mobile scaling.
 var paneOpening = anime.timeline({
   autoplay: false,
-  duration: 800
+  duration: 700
 })
 paneOpening.add({
   targets: '.option',
@@ -532,6 +558,38 @@ function mouseClickOption4(){
 }
 
 //Portfolio Pages
+function mouseOverVoteLink(){
+  if (linkVoteAnimation.reversed) linkVoteAnimation.reverse();
+  linkVoteAnimation.completed = false;
+  linkVoteAnimation.play();
+}
+function mouseLeaveVoteLink(){
+  if (!linkVoteAnimation.reversed) linkVoteAnimation.reverse();
+  linkVoteAnimation.completed = false;
+  linkVoteAnimation.play();
+}
+function mouseClickVoteLink(){
+  if (portfolioVoteAnimation.reversed) portfolioVoteAnimation.reverse();
+  portfolioVoteAnimation.play();
+  portfolioTab = "vote";
+}
+
+function mouseOverOvenLink(){
+  if (linkOvenAnimation.reversed) linkOvenAnimation.reverse();
+  linkOvenAnimation.completed = false;
+  linkOvenAnimation.play();
+}
+function mouseLeaveOvenLink(){
+  if (!linkOvenAnimation.reversed) linkOvenAnimation.reverse();
+  linkOvenAnimation.completed = false;
+  linkOvenAnimation.play();
+}
+function mouseClickOvenLink(){
+  if (portfolioOvenAnimation.reversed) portfolioOvenAnimation.reverse();
+  portfolioOvenAnimation.play();
+  portfolioTab = "oven";
+}
+
 function mouseOverVIBESLink(){
   if (linkVIBESAnimation.reversed) linkVIBESAnimation.reverse();
   linkVIBESAnimation.completed = false;
@@ -592,6 +650,18 @@ function mouseLeaveBack(){
   backAnimation.play();
 }
 function mouseClickBack(){
+  if (portfolioTab == "vote"){
+    if (!portfolioVoteAnimation.reversed) portfolioVoteAnimation.reverse();
+    portfolioVoteAnimation.completed = false;
+    portfolioVoteAnimation.play();
+  }
+
+  if (portfolioTab == "oven"){
+    if (!portfolioOvenAnimation.reversed) portfolioOvenAnimation.reverse();
+    portfolioOvenAnimation.completed = false;
+    portfolioOvenAnimation.play();
+  }
+
   if (portfolioTab == "VIBES"){
     if (!portfolioVIBESAnimation.reversed) portfolioVIBESAnimation.reverse();
     portfolioVIBESAnimation.completed = false;
@@ -629,6 +699,12 @@ function addAllEventListeners(){
   document.querySelector(".subheader4").addEventListener("mouseleave", mouseLeaveOption4);
   document.querySelector(".subheader4").addEventListener("click", mouseClickOption4);
 
+  document.querySelector(".voteLink").addEventListener("mouseover", mouseOverVoteLink);
+  document.querySelector(".voteLink").addEventListener("mouseleave", mouseLeaveVoteLink);
+  document.querySelector(".voteLink").addEventListener("click", mouseClickVoteLink);
+  document.querySelector(".ovenLink").addEventListener("mouseover", mouseOverOvenLink);
+  document.querySelector(".ovenLink").addEventListener("mouseleave", mouseLeaveOvenLink);
+  document.querySelector(".ovenLink").addEventListener("click", mouseClickOvenLink);
   document.querySelector(".VIBESLink").addEventListener("mouseover", mouseOverVIBESLink);
   document.querySelector(".VIBESLink").addEventListener("mouseleave", mouseLeaveVIBESLink);
   document.querySelector(".VIBESLink").addEventListener("click", mouseClickVIBESLink);
