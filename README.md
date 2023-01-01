@@ -1,4 +1,4 @@
-# Nicola Frachesen's Website
-My personal website. Contains an about section, brief portfolio, resume, and contact information.
+# Nicola Frachesen's Website & Portfolio
+Contains an about section, overview of design projects, resume, and contact information.
 
 https://nicolafrachesen.com
